@@ -1,0 +1,19 @@
+{
+  "name": "wordapiapp",
+  "version": "1.0.0",
+  "description": "word app assignment",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Znep27/wordApiApp.git"
+  },
+  "author": "Marc Rozenburgh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Znep27/wordApiApp/issues"
+  },
+  "homepage": "https://github.com/Znep27/wordApiApp#readme"
+}
