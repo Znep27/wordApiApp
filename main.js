@@ -17,10 +17,10 @@ getWord.addEventListener("submit", e => {
     word = document.getElementById('word').value
 	console.log(word)
 	const newButtons = document.getElementById('newButtons')
-	newButtons.innerHTML = `<button type="button" id="definition" onclick = "getDefinition()">Definition</button>
-		<button type="button" id="synonyms" onclick = "getSynonyms()">Synonyms</button>
-		<button type="button" id="antonyms" onclick = "getAntonyms()">Antonyms</button>
-		<button type="button" id="rhymes" onclick = "getRhymes()">Rhymes</button>`
+	newButtons.innerHTML = `<br><button type="button" id="definition" onclick = "getDefinition()">Definition</button>
+		<br><button type="button" id="synonyms" onclick = "getSynonyms()">Synonyms</button>
+		<br><button type="button" id="antonyms" onclick = "getAntonyms()">Antonyms</button>
+		<br><button type="button" id="rhymes" onclick = "getRhymes()">Rhymes</button>`
   });
 
 const getDefinition = () => {
@@ -28,33 +28,57 @@ const getDefinition = () => {
 	.then(res => res.json())
 	.then(index => arrayOfDefinition = index.definitions)
 	.then(setTimeout(() => {
-		console.log(arrayOfDefinition)}, "1000"))
+		console.log(arrayOfDefinition)
+		const allDef = document.getElementById('list')
+		allDef.innerHTML = '<h2>DEFINITIONS:</h2>'
+		arrayOfDefinition.map((index) => {
+			const li = document.createElement('li')
+			li.innerHTML = `${index.definition}`
+			allDef.append(li)
+		})}, "1000"))
 }
-getDefinition()
 
 const getSynonyms = () => {
 	fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/synonyms`, options)
 	.then(res => res.json())
 	.then(index => arrayOfSynonyms = index.synonyms)
 	.then(setTimeout(() => {
-		console.log(arrayOfSynonyms)}, "1000"))
+		console.log(arrayOfSynonyms)
+		const allSyn = document.getElementById('list')
+		allSyn.innerHTML = '<h2>SYNONYMS:</h2>'
+		arrayOfSynonyms.map((index) => {
+			const li = document.createElement('li')
+			li.innerHTML = `${index}`
+			allSyn.append(li)
+		})}, "1000"))
 }
-getSynonyms()
 
 const getAntonyms = () => {
 	fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/antonyms`, options)
 	.then(res => res.json())
 	.then(index => arrayOfAntonyms = index.antonyms)
 	.then(setTimeout(() => {
-		console.log(arrayOfAntonyms)}, "1000"))
+		console.log(arrayOfAntonyms)
+		const allAnt = document.getElementById('list')
+		allAnt.innerHTML = '<h2>ANTONYMS:</h2>'
+		arrayOfAntonyms.map((index) => {
+			const li = document.createElement('li')
+			li.innerHTML = `${index}`
+			allAnt.append(li)
+		})}, "1000"))
 }
-getAntonyms()
 
 const getRhymes = () => {
 	fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/rhymes`, options)
 	.then(res => res.json())
 	.then(index => arrayOfRhymes = index.rhymes.all)
 	.then(setTimeout(() => {
-		console.log(arrayOfRhymes)}, "1000"))
+		console.log(arrayOfRhymes)
+		const allRhy = document.getElementById('list')
+		allRhy.innerHTML = '<h2>RHYMES:</h2>'
+		arrayOfRhymes.map((index) => {
+			const li = document.createElement('li')
+			li.innerHTML = `${index}`
+			allRhy.append(li)
+		})}, "1000"))
 }
-getRhymes()
