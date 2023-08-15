@@ -1,0 +1,15 @@
+body {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: lightgray;
+}
+
+#selector {
+    grid-column: 1/2;
+    background-color: burlywood;
+    height: 800px;
+}
+
+#lists {
+    grid-column: 2/3;
+}

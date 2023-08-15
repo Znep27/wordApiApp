@@ -3,24 +3,17 @@ let arrayOfDefinition
 let arrayOfSynonyms
 let arrayOfAntonyms
 let arrayOfRhymes
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '63f5a03d9cmshd64e2edd3a2085ap1bde21jsne0787f084f6c',
-		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-	}
-};
 
 const getWord = document.getElementById('wordSelect');
 getWord.addEventListener("submit", e => {
     e.preventDefault()
-    word = document.getElementById('word').value
+    word = document.getElementById('word').value.trim()
 	console.log(word)
 	const newButtons = document.getElementById('newButtons')
 	newButtons.innerHTML = `<br><button type="button" id="definition" onclick = "getDefinition()">Definition</button>
-		<br><button type="button" id="synonyms" onclick = "getSynonyms()">Synonyms</button>
-		<br><button type="button" id="antonyms" onclick = "getAntonyms()">Antonyms</button>
-		<br><button type="button" id="rhymes" onclick = "getRhymes()">Rhymes</button>`
+		<br><br><button type="button" id="synonyms" onclick = "getSynonyms()">Synonyms</button>
+		<br><br><button type="button" id="antonyms" onclick = "getAntonyms()">Antonyms</button>
+		<br><br><button type="button" id="rhymes" onclick = "getRhymes()">Rhymes</button>`
   });
 
 const getDefinition = () => {
