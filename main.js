@@ -39,11 +39,8 @@ const getSynonyms = () => {
 		console.log(arrayOfSynonyms)
 		const allSyn = document.getElementById('list')
 		allSyn.innerHTML = '<h2>SYNONYMS:</h2>'
-		arrayOfSynonyms.map((index) => {
-			const li = document.createElement('li')
-			li.innerHTML = `${index}`
-			allSyn.append(li)
-		})}, "1000"))
+		display(arrayOfSynonyms, allSyn)
+	}, "1000"))
 }
 
 const getAntonyms = () => {
@@ -54,11 +51,8 @@ const getAntonyms = () => {
 		console.log(arrayOfAntonyms)
 		const allAnt = document.getElementById('list')
 		allAnt.innerHTML = '<h2>ANTONYMS:</h2>'
-		arrayOfAntonyms.map((index) => {
-			const li = document.createElement('li')
-			li.innerHTML = `${index}`
-			allAnt.append(li)
-		})}, "1000"))
+		display(arrayOfAntonyms, allAnt)
+	}, "1000"))
 }
 
 const getRhymes = () => {
@@ -69,9 +63,14 @@ const getRhymes = () => {
 		console.log(arrayOfRhymes)
 		const allRhy = document.getElementById('list')
 		allRhy.innerHTML = '<h2>RHYMES:</h2>'
-		arrayOfRhymes.map((index) => {
-			const li = document.createElement('li')
-			li.innerHTML = `${index}`
-			allRhy.append(li)
-		})}, "1000"))
+		display(arrayOfRhymes, allRhy)
+	}, "1000"))
+}
+
+const display = (arr, all) => {
+	arr.map((index) => {
+		const li = document.createElement('li')
+		li.innerHTML = `${index}`
+		all.append(li)
+	})
 }
